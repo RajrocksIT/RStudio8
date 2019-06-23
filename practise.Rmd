@@ -1,0 +1,33 @@
+---
+title: "practise"
+output: html_document
+---
+
+```{r}
+books = read.delim('allbacks.CSV', sep = ',')
+books
+
+
+```
+
+```{r}
+cor(books$weight, books$volume)
+```
+
+```{r}
+mybooks = lm(weight~volume+cover, data = books)
+mybooks
+anova(mybooks)
+
+```
+
+```{r}
+summary(mybooks)$r.squared
+```
+
+```{r}
+require(lattice)
+xyplot(weight~volume+cover, data = books)
+```
+
+
